@@ -31,7 +31,7 @@ def get_any(symbol, interval, start, end):
     return df
 
 
-
+# User inputs
 symbol = 'BTCUSDT' # Symbol for target trading pair
 timeframe = KLINE_INTERVAL_1MINUTE # Target chart timeframe, 
 out = pd.DataFrame()
@@ -39,6 +39,7 @@ start = 1636820525
 end = round(time.time())
 iterate_by = 60000 # Number of seconds in timeframe
 
+# Data retrieval
 for i in range(start, end, iterate_by):
     temp = get_any(symbol, timeframe, str(i*1000), str((i+iterate_by)*1000))
     out = out.append(temp, ignore_index=True)
